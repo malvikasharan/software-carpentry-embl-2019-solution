@@ -7,7 +7,7 @@ Materials for Software Carpentry workshop at the European Molecular Biology Labo
 
 ### Step 1: 
 
-Please download this repo in your 'Desktop' folder, either as zipped folder (click on the download button, finish downloading, and unzip folder) or locally using the command `git clone https://github.com/malvikasharan/software-carpentry-embl-2019.git`
+Please download this repo in your 'Desktop' folder, either as zipped folder (click on the download button, finish downloading, and unzip folder) or locally using the command `git clone https://github.com/malvikasharan/software-carpentry-embl-2019-solution.git`
 
 ### Step 2: 
 
@@ -46,19 +46,6 @@ Workshop homepage: [https://malvikasharan.github.io/2019-10-16-heidelberg/](http
 
 Workshop info page: [https://www.embl.de/training/events/2019/SWC19-01/programme/](https://www.embl.de/training/events/2019/SWC19-01/programme/)
 
-#### Other Workshop Materials
-
-The updated DNA nucleotide counting script from debugging session: https://github.com/tobyhodges/debugging-and-style/blob/swc_embl_2017/README.md
-
-Luis' Git intro talk material: https://github.com/luispedro/talk-git-intro
-
-Mike's HPC lesson material: https://github.com/grimbough/swc_hpc
-
-Tom's Snakemake lesson material: https://git.embl.de/schwarzl/snakemake-tutorial/tree/master
-
-
-#### More Links
-
 Workshop Etherpad: https://pad.carpentries.org/2019-10-16-heidelberg
 
 The Carpentries: [carpentries.org](https://carpentries.org)
@@ -67,4 +54,13 @@ EMBL Bio-IT: [bio-it.embl.de](https://bio-it.embl.de)
 
 EMBL: [embl.de](https://embl.de)
 
+#### Related Workshop Materials
+
+The updated DNA nucleotide counting script from debugging session: https://github.com/tobyhodges/debugging-and-style/blob/swc_embl_2017/README.md
+
+Luis' Git intro talk material: https://github.com/luispedro/talk-git-intro
+
+Mike's HPC lesson material: https://github.com/grimbough/swc_hpc
+
+Tom's Snakemake lesson material: https://git.embl.de/schwarzl/snakemake-tutorial/tree/master
 
