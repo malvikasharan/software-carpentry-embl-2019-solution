@@ -1,0 +1,4 @@
+Current host is: embl-swc-node1
+Wait time is: 10 seconds
+List length is: 100
+Memory usage: 13.094912 MB

@@ -1,0 +1,30 @@
+
+SAMPLES, = glob_wildcards("{samples}.fasta")
+
+rule all:
+    input:
+        "extract.txt"
+
+rule summarize:
+    input:
+        expand("{samples}.fasta", samples=SAMPLES)
+    output:
+        temp("sum.txt")
+    message:
+        "summarizing counts from {input} and creating {output}"
+    shell:
+        "wc -c {input} > {output}"
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    message:
+        "extracting the counts"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output}"
+
+rule clean:
+    shell:
+        "rm -f extract.txt sum.txt"

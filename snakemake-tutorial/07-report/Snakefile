@@ -1,0 +1,41 @@
+from snakemake.utils import report
+
+rule all:
+    input:
+        "extract.txt"
+
+rule summarize:
+    input:
+        "A.fasta",
+        "B.fasta"
+    output:
+        "sum.txt"
+    shell:
+        "wc -c {input} > {output}"
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output}"
+
+rule clean:
+    shell:
+        "rm -f extract.txt sum.txt"
+
+
+rule report:
+    input:
+        T1="sum.txt"
+    output:
+        html="report.html"
+    run:
+        report("""
+    ========
+    title
+    ========
+
+    Something  {input.T1}
+    """, output.html, metadata="Author", **input)

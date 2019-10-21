@@ -1,0 +1,23 @@
+localrules: all, extract
+
+SAMPLES, = glob_wildcards("{samples}.fasta")
+
+# .txt
+
+rule bla:
+    run:
+        print(SAMPLES[0])
+
+
+
+rule all:
+    input:
+        expand("{samples}.txt", samples = SAMPLES)
+
+rule do_cut:
+    input:
+        "{file}.fasta"
+    output:
+        "{file}.sorted.fasta"
+    shell:
+        "cat {input} > {output}"

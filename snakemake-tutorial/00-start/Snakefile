@@ -1,0 +1,36 @@
+SAMPLES,= glob_wildcards("{blabla}.fasta")
+
+print(SAMPLES)
+
+localrules: all, extract
+
+rule all:
+    input:
+        "extract.txt"
+
+# this is a comment
+rule summarize:
+    input:
+        expand("{samples}.fasta", samples = SAMPLES)
+    output:
+        temp("sum.txt")
+    log:
+        "sum.log"
+    message:
+        "summarize {input} to {output}"
+    shell:
+        "wc -c {input} > {output} 2> {log}"
+
+rule extract:
+    input:
+        "sum.txt"
+    output:
+        "extract.txt"
+    message:
+        "extracting {input} to {output}"
+    shell:
+        "sed 's/^[ ]*//' {input} | cut -f1 -d ' ' > {output}"
+
+rule clean:
+    shell:
+        "rm -f extract.txt sum.txt"

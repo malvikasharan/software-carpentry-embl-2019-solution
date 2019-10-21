@@ -1,0 +1,21 @@
+localrules: all, extract
+
+SAMPLES, = glob_wildcards("{samples}.fasta")
+
+rule all:
+    input:
+        #TODO
+
+rule do_summarize:
+    input:
+        #TODO
+    output:
+        #TODO
+    message:
+        "summarizing {input} to {output}"
+    shell:
+        "wc -c {input} > {output}"
+
+rule clean:
+    shell:
+        "rm -f *.sum"

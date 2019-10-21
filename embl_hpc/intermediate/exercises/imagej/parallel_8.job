@@ -1,0 +1,30 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -c 24
+#SBATCH --mem 180000
+#SBATCH -t 0-00:10:00
+
+module load Java
+module load X11
+
+mkdir -p ~/.imagej
+cp /g/its/home/pecar/benchmarks/tischer_fib-sem-cell-crop/IJ_Prefs.txt ~/.imagej/
+
+cp /g/its/home/pecar/benchmarks/tischer_fib-sem-cell-crop/fib-sem--cell--8x8x8nm.tif $TMPDIR/
+cp /g/its/home/pecar/benchmarks/tischer_fib-sem-cell-crop/bg-er.classifier $TMPDIR/
+cd $TMPDIR
+
+START_TIME=$SECONDS
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,0,25,0,0',numWorkers='12'" &
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,26,50,0,0',numWorkers='12'" &
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,51,75,0,0',numWorkers='12'" &
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,76,100,0,0',numWorkers='12'" &
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,101,125,0,0',numWorkers='12'" &
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,126,150,0,0',numWorkers='12'" &
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,151,175,0,0',numWorkers='12'" &
+/g/almf/software/Fiji.app/ImageJ-linux64 --mem=32000M --ij2 --allow-multiple --headless --run  "Apply Classifier" "inputImageFile='fib-sem--cell--8x8x8nm.tif',memoryMB='32000',quitAfterRun='true',classifierFile='bg-er.classifier',dataSetID='fib-sem--cell--8x8x8nm',outputModality='Save class probabilities as Tiff slices',outputDirectory='.',inputModality='Open using ImageJ1 virtual',saveResultsTable='false',classificationIntervalXYZT='0,496,0,516,176,200,0,0',numWorkers='12'" &
+wait
+
+ELAPSED_TIME=$(($SECONDS - $START_TIME))
+
+echo "Elapsed time on `hostname` with $SLURM_CPUS_PER_TASK cores and 8x12: $ELAPSED_TIME"
